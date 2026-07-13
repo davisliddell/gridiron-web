@@ -1,7 +1,7 @@
 # Gridiron Viz — Web (Next.js)
 
-Next.js front-end for [Gridiron Viz](../gridiron-viz), talking to the FastAPI
-backend. Rebuilds the five Streamlit pages (Home, Player Cards, Efficiency vs.
+Next.js front-end for [Gridiron Viz](https://github.com/davisliddell/gridiron-api),
+talking to the FastAPI backend. Rebuilds the five Streamlit pages (Home, Player Cards, Efficiency vs.
 Volume, Field Heatmaps, Similarity) with `react-plotly.js`, keeping feature
 parity with the original app.
 
@@ -13,10 +13,11 @@ parity with the original app.
 
 ## Run
 
-The backend API must be running first (see the `gridiron-viz` repo):
+The backend API must be running first (see the
+[`gridiron-api`](https://github.com/davisliddell/gridiron-api) repo):
 
 ```bash
-# in gridiron-viz/
+# in gridiron-api/
 uvicorn api.main:app --port 8000
 ```
 
