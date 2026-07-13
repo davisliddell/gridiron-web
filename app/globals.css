@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+/* Palette ported from gridiron/theme.py + ui.py _CSS */
+:root {
+  --surface: #1a1a19;
+  --plane: #0d0d0d;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --accent: #3987e5;
+  --font: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html,
+body {
+  background: var(--plane);
+  color: var(--ink-2);
+  font-family: var(--font);
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* App layout: fixed sidebar + scrollable content */
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+.sidebar {
+  width: 240px;
+  flex: 0 0 240px;
+  background: var(--surface);
+  border-right: 1px solid var(--grid);
+  padding: 1.25rem 1rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.content {
+  flex: 1 1 auto;
+  max-width: 1200px;
+  padding: 2rem 2.5rem 3rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Sidebar nav */
+.nav-brand {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  margin-bottom: 1rem;
+}
+.nav-link {
+  display: block;
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  color: var(--ink-2);
+  font-size: 0.92rem;
+}
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+.nav-link.active {
+  background: rgba(57, 135, 229, 0.16);
+  color: var(--ink);
+}
+.sidebar-section {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--grid);
+  padding-top: 1rem;
+}
+.sidebar-label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0.75rem 0 0.3rem;
+}
+
+/* Page header (mirrors ui.page_setup) */
+.kicker {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  margin-bottom: 0.1rem;
+}
+.page-title {
+  font-size: 2rem;
+  margin: 0.1rem 0 0.4rem;
+}
+.page-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 65ch;
+}
+.caption {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: 0.75rem;
+}
+
+/* Form controls */
+select,
+.control {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--axis);
+  border-radius: 6px;
+  padding: 0.4rem 0.55rem;
+  font-size: 0.9rem;
+  width: 100%;
+}
+select:focus,
+.control:focus {
+  outline: 1px solid var(--accent);
+}
+
+/* Metric tiles + tables */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+.tile {
+  background: var(--surface);
+  border: 1px solid var(--grid);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+}
+.tile .tile-label {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.tile .tile-value {
+  color: var(--ink);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+table.grid-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+table.grid-table th,
+table.grid-table td {
+  border: 1px solid var(--grid);
+  padding: 0.45rem 0.7rem;
+  text-align: left;
+}
+table.grid-table th {
+  color: var(--ink);
+  background: var(--surface);
+}
+
+.warning {
+  background: rgba(250, 178, 25, 0.12);
+  border: 1px solid #fab219;
+  color: var(--ink-2);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.4rem 0;
+}
+.chip {
+  background: var(--surface);
+  border: 1px solid var(--axis);
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+  color: var(--ink-2);
+}
+.chip.on {
+  background: rgba(57, 135, 229, 0.18);
+  border-color: var(--accent);
+  color: var(--ink);
+}
